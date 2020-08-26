@@ -1,5 +1,27 @@
-    <h1>Team Details</h1>
-    {% for d in usuarios %}
-    <div><p>Usuario: {{ d.username }}<br>Senha: {{ d.password }}
-    <br>ID: {{ d.id }}</p></div>
-    {% endfor %}
+{% extends "base.html" %}
+
+
+
+
+{%block content%}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Usuário</th>
+      <th scope="col">Senha</th>
+    </tr>
+  </thead>
+  {% for d in usuarios %}
+  	    <tr>
+      <th scope="row">1</th>
+      <td>{{d.username}}</td>
+      <td>{{d.password}}</td>
+    </tr>
+   {% endfor %}
+
+{%endblock%}
+
+
+    
+
