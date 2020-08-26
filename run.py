@@ -1,5 +1,10 @@
 from meuapp import app
 from meuapp import manager
+from meuapp.models import tables
+from meuapp.models.tables import Login
+from meuapp import db
+from flask import render_template
+
 
 @app.route("/")
 def index():
@@ -9,15 +14,17 @@ def index():
 def habilidades():
     return render_template('habilidades.html')
 
-
-@app.route('/test/<info>')
-@app.route('/test', defaults={'info':None})
+@app.route('/teste',methods=['GET','POST'])
 def teste():
-	i=User('douglas','douglas.laraf@gmail.com')
-	db.session.add(i)
-	db.session.commit()
+	usuarios=Login.query.all()
+	return render_template('teste.html',usuarios=usuarios)
+
+
+#i=Login('dougladd2s','adfddads12345')
+#db.session.add(i)
+#db.session.commit()
 
 
 if __name__=='__main__':
 	manager.run()
-	db.create_all()
+	#db.create_all()

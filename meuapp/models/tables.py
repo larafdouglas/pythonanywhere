@@ -33,7 +33,7 @@ class Blogpost(db.Model):
 class Login(db.Model):
     __tablename__='Login'
     id=db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String,unique=True)
+    username = db.Column(db.String)
     password = db.Column(db.String)
 
     def __init__(self,username,password):
